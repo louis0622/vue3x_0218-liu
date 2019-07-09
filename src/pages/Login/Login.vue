@@ -132,16 +132,8 @@ export default {
       }else{
         confirm(result.msg)
       }
-
-      
-
-
-
     }
-    
-
   }
-
 };
 </script>
 
