@@ -12,7 +12,6 @@ const qs = require('qs');
 //请求超时
 axios.defaults.timeout = 15000
 
-
 //创建一个请求拦截器interceptors
 axios.interceptors.request.use(function (config) {
     //config里取出method请求方式，请求的数据data

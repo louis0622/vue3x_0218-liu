@@ -21,6 +21,7 @@ export const reqShops = ({latitude ,longitude}) => ajax({
     params: { latitude , longitude }
 })
 
+
 //发送短信验证码请求
 export const reqSendcode = (phone) => ajax({
     method:'GET',
