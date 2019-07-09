@@ -83,7 +83,7 @@ export default {
   methods: {
     //短信与密码切换
     Showlogin(loginShow) {
-      this.loginShow = loginShow;
+      this.loginShow = loginShow; 
     },
     //发送验证码
     async SendCode() {
