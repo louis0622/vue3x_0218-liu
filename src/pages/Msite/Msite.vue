@@ -54,7 +54,10 @@ export default {
   //计算属性
   computed: {
     //--->地址信息 和 分类列表categorys
-    ...mapState(["address", "categorys"]),
+    ...mapState({
+      address : state => state.msite.address,
+      categorys : state => state.msite.categorys
+    }),
     //根据一维数组生成二维数组   创建categorysArr
     categorysArr() {
       //1.取数据

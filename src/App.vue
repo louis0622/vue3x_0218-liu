@@ -24,6 +24,8 @@ export default {
     this.$store.dispatch('getCategorys')
     //发送Shops经纬度获取商铺列表请求，调用getShops
     this.$store.dispatch('getShops')
+    //分发自动登录的请求
+    this.$store.dispatch('autoLogin')
   },
   components: {
     FooterGuide

@@ -18,7 +18,8 @@
                 class="get_verification"
                 :class="{right_phone : Isphone}"
                 @click.prevent="SendCode"
-              >{{CountdownTime>0? `已发送验证码(${CountdownTime}s)`:'获取验证码'}}</button>
+              >{{CountdownTime>0? `已发送验证码(${CountdownTime}s)`:'获取验证码'}}
+              </button>
             </section>
             <section class="login_verification">
               <input type="tel" maxlength="8" placeholder="验证码" v-model="code"/>
@@ -71,7 +72,7 @@ export default {
       phone: '',       //手机号
       loginShow: true,  //true为短信登录，false为密码登录
       CountdownTime: 0 ,     //验证码倒计时时间
-      showPwd:false,         //是否显示密码
+      showPwd: false,         //是否显示密码
     };
   },
   computed: {
@@ -109,11 +110,12 @@ export default {
       this.$refs.captcha.src = 'http://localhost:5000/captcha?time=' + Date.now() 
 
     },
-    //发送两种登录方式请求
+
+  //发送两种登录请求方式
     async LoginUsers(){
-      let result = null
+      let result
       //先取出数据
-      const {loginShow,name,code,phone,captcha} = this
+      const {loginShow,name,code,phone,captcha,pwd} = this
         //1.发送用户名/密码登录请求
       if(!loginShow){
        result = await reqLoginPwd({name,pwd,captcha})
@@ -125,10 +127,9 @@ export default {
       if (result.code === 0) {
         //将user信息保存到state中
         const user = result.data
-        this.$store.dispatch('receive_users',user)
+        this.$store.dispatch('redcodeUser',user)
         //跳转个人中心profile
-        this.$router.repalce('/profile')
-
+        this.$router.replace('/profile')
       }else{
         confirm(result.msg)
       }

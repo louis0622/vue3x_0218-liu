@@ -6,6 +6,9 @@ import App from './App'
 import router from './router';
 import Header from './components/Header/Header.vue'
 import ajax from './api/ajax'
+import './mock/mockServer'
+import {Button} from 'mint-ui'
+
 //注册store
 import store from './vuex/store'
 import Star from './components/Star/Star'
@@ -13,6 +16,7 @@ import Star from './components/Star/Star'
 //全局注册
 Vue.component('Header', Header)
 Vue.component('Star', Star)
+Vue.component(Button.name, Button)
 //放到全局，所有的组件都能调用
 Vue.prototype.$axios = ajax
 
